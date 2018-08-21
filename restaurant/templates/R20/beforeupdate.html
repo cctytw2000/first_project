@@ -1,0 +1,35 @@
+{% extends "base.html" %} {% block body %}
+<div style="position: fixed; ">
+    <a href="{% url 'restaurants:create' %}" class="btn btn-primary" style="margin : 5px auto">
+        <i class="fas fa-plus-square"></i>餐廳新增</a>
+    <a class="btn btn-primary" href="{% url 'restaurants:index' %}">
+        <i class="fas fa-cog"></i>餐廳設定</a>
+</div>
+<div style="width: 50%;margin: 15px auto">
+    <dl style="padding: 5px;font-size: 24px">
+        {% for res in datas %}
+        <h2 class="alert alert-primary" style="border-radius: 20px 20px 0 0">
+            <i class="fab fa-python"></i>餐廳名稱:{{res.1}}
+            <a style="margin:5px 5px;float:right" href="{% url 'restaurants:delete' res.0  %}" class="btn btn-danger">
+                <i class="fas fa-trash-alt"></i>
+            </a>
+            <a style="margin:5px 5px;float:right;" href="{% url 'restaurants:update' res.0  %}" class="btn btn-danger">
+                <i class="fas fa-pencil-alt"></i>
+            </a>
+        </h2>
+        <p>
+            <i class="fas fa-boxes"></i>餐廳類型:{{res.2}}</p>
+        <p>
+            <i class="fas fa-phone"></i>餐廳電話:{{res.3}}</p>
+        <p>
+            <i class="fas fa-map-marker"></i>餐廳地址:{{res.4}}</p>
+        <p>
+            <i class="fas fa-link"></i>餐廳網址:
+            <a href="{{res.5}}">{{res.5}}</a>
+        </p>
+        <p>
+            <i class="fas fa-comment"></i>餐廳評論:{{res.6}}</p>
+        {% endfor %}
+    </dl>
+</div>
+{% endblock %}
