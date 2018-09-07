@@ -13,6 +13,15 @@
     
     <title></title>
     <style>
+    .backimage{
+        background-image: url("{% static 'images/index.jpg' %}");
+        background-color: #cccccc;
+        height: 800px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+    }
     s1{
       background-color:'red';
       font-size:24px
@@ -24,7 +33,7 @@
     </style>
 
   </head>
-  <body>
+  <body class="backimage">
     {% include 'nav.html' %}
 
     {% block body%}

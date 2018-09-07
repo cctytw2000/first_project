@@ -19,6 +19,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
+    path('',include('home.urls')),
     path('book/',include('book.urls')),
     path('restaurant/',include('restaurant.urls')),
     path('member/',include('member.urls'))

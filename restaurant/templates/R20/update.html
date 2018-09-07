@@ -1,12 +1,12 @@
 {% extends 'base.html' %} {% block body %}
-<h2>Product Update</h2>
+<h2 style="text-align:center;font-weight:bold;">餐廳修改</h2>
 <hr />
-<form method="POST" enctype="multipart/form-data">
+<form method="POST" enctype="multipart/form-data" style="margin:10px auto;background-color: whitesmoke;width: 50%;border-radius: 15px 15px 0 0">
   {% csrf_token %}
-  <div class="form-group row">
+  <div class="form-group row" style="padding:15px">
     <label for="rtype" class="col-sm-2 col-form-label col-form-label-lg">餐廳類型</label>
     <div class="col-sm-10">
-      <select class="form-control form-control-lg" name="rtype" id="rtype">
+      <select style="width: 100%" class="form-control form-control-lg" name="rtype" id="rtype">
         <option value="0">請選擇</option>
         <option value="中式">中式</option>
         <option value="西式">西式</option>
@@ -18,38 +18,38 @@
       </select>
     </div>
   </div>
-  <div class="form-group row">
+  <div class="form-group row" style="padding:15px">
     <label for="rname" class="col-sm-2 col-form-label col-form-label-lg">餐廳名稱</label>
     <div class="col-sm-10">
       <input type="hidden" name="restaurantsid" value="{{data.0}}" />
-      <input type="text" value="{{data.1}}" class="form-control form-control-lg" name="rname" id="rname" placeholder="請輸入餐廳名稱">
+      <input style="width: 100%" type="text" value="{{data.1}}" class="form-control form-control-lg" name="rname" id="rname" placeholder="請輸入餐廳名稱">
     </div>
   </div>
-  <div class="form-group row">
+  <div class="form-group row" style="padding:15px">
     <label for="rtel" class="col-sm-2 col-form-label col-form-label-lg">餐廳電話</label>
     <div class="col-sm-10">
-      <input type="text" value="{{data.3}}" class="form-control form-control-lg" name="rtel" id="rtel" placeholder="請輸入餐廳電話">
+      <input style="width: 100%" type="text" value="{{data.3}}" class="form-control form-control-lg" name="rtel" id="rtel" placeholder="請輸入餐廳電話">
     </div>
   </div>
-  <div class="form-group row">
+  <div class="form-group row" style="padding:15px">
     <label for="raddress" class="col-sm-2 col-form-label col-form-label-lg">餐廳地址</label>
     <div class="col-sm-10">
-      <input type="text" value="{{data.4}}" class="form-control form-control-lg" name="raddress" id="raddress" placeholder="請輸入餐廳地址">
+      <input style="width: 100%" type="text" value="{{data.4}}" class="form-control form-control-lg" name="raddress" id="raddress" placeholder="請輸入餐廳地址">
     </div>
   </div>
-  <div class="form-group row">
+  <div class="form-group row" style="padding:15px">
     <label for="rweb" class="col-sm-2 col-form-label col-form-label-lg">餐廳網址</label>
     <div class="col-sm-10">
-      <input type="url" value="{{data.5}}" class="form-control form-control-lg" name="rweb" id="rweb">
+      <input style="width: 100%" type="url" value="{{data.5}}" class="form-control form-control-lg" name="rweb" id="rweb">
     </div>
   </div>
-  <div class="form-group row">
+  <div class="form-group row" style="padding:15px">
     <label for="rintroduction" class="col-sm-2 col-form-label col-form-label-lg">餐廳簡介</label>
     <div class="col-sm-10">
-      <textarea class="form-control form-control-lg" name="rintroduction" id="rintroduction">{{data.6}}</textarea>
+      <textarea style="width: 100%" class="form-control form-control-lg" name="rintroduction" id="rintroduction">{{data.6}}</textarea>
     </div>
   </div>
-  <div class="form-group row">
+  <div class="form-group row" style="padding:15px">
     <div class="col-sm-10">
       <button type="submit" class="btn btn-primary">
         <i class="fas fa-plus-circle"></i> 修改</button>

@@ -8,8 +8,8 @@
 </div>
 {% endif %}
 
-<div style="width: 50%;margin: 15px auto;">
-    <dl style="padding: 5px;font-size: 24px">
+<div style="width: 50%;margin: 15px auto">
+    <dl style="padding: 5px;font-size: 24px;background-color: white;border-radius: 20px 20px 0 0">
         {% for res in datas %}
 
         <h2 class="alert alert-primary" style="border-radius: 20px 20px 0 0"><i class="fab fa-python"></i>餐廳名稱:{{res.1}}</h2>
@@ -20,9 +20,9 @@
         <p><i class="fas fa-comment"></i>餐廳評論:{{res.6}}</p>
         {% if request.COOKIES.name == 'user' %}
         <a class="btn btn-primary" href="{% url 'restaurants:update' res.0 %}">
-            <i class="fas fa-cog"></i>餐廳設定</a>
+            <i class="fas fa-cog">餐廳設定</i></a>
         <a class="btn btn-primary" href="{% url 'restaurants:delete' res.0 %}">
-            <i class="fas fa-cog"></i>餐廳刪除</a>
+            <i class="fas fa-cog">餐廳刪除</i></a>
         {% endif %}
         {% endfor %}
 

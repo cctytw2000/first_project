@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+<style>
+    .backimage{
+        background-image: url("{% static 'images/index.jpg' %}");
+        background-color: #cccccc;
+        height: 800px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+
+</style>
+</head>
+<body class="backimage">
+        <a href="{% url 'restaurants:index'%}"><p style="text-align: center;font-size: 50px">點我進去</p></a>
+</body>
+</html>
