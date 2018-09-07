@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block body %}
+<h2 style="text-align: center">訂位清單<a href="{% url 'book:create' %}" class="btn btn-primary"><i class="fas fa-plus-square"></i>訂位新增</a></h2>
+
+<table class="table table-bordered" style="margin: 15px auto;text-align: center">
+    <thead>
+        <tr class="row">
+            <th class="col-2"><i style="padding-left:15px" class="fas fa-utensils"></i></th>
+            <th class="col-1">訂位大名</th>
+            <th class="col-1">訂位餐廳</th>
+            <th class="col-1">訂位人數</th>
+            <th class="col-1">訂位電話</th>
+            <th class="col-1">用餐日期</th>
+            <th class="col-1">用餐時間</th>
+            <th class="col-2">訂位時間</th>
+            <th class="col-1">編輯訂位</th>
+            <th class="col-1">刪除訂位</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for booking in bookings %}
+        <tr class="row">
+            <td class="col-2">請於用餐時間10分鐘前報到</td>
+            <td class="col-1">{{booking.bookname}}</td>
+            <td class="col-1">{{booking.restaurantname}}</td>
+            <td class="col-1">{{booking.bookperson}}</td>
+            <td class="col-1">{{booking.booktel}}</td>
+            <td class="col-1">{{booking.bookdate}}</td>
+            <td class="col-1">{{booking.bookwhen}}</td>
+            <td class="col-2">{{booking.booktime}}</td>
+            </td>
+            <td class="col-1">
+                    <a href="{% url 'book:update' booking.id  %}" class="btn btn-secondary"><i class="fas fa-pencil-alt"></i></a>
+                    </td>
+                    <td class="col-1">
+                    <a href="{% url 'book:delete' booking.id  %}" class="btn btn-secondary"><i class="fas fa-trash-alt"></i></a>
+                </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script>
+    $(document).ready(function () {
+        $('td').css({ 'background-color': 'lightgreen','font-size':'18px'})
+            .mouseover(over)
+            .mouseout(out)
+        function over() {
+            $(this).css({'background-color':'red','font-size':'24px'})
+            
+        }
+        function out() {
+            $(this).css({'background-color':'lightgreen','font-size':'18px'});
+
+        }
+    })
+
+
+
+
+
+</script>
+{% endblock %} 

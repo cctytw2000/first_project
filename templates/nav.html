@@ -2,13 +2,22 @@
     <li class="nav-item">
       <a class="nav-link" href="{% url 'restaurants:index' %}"><i class="fas fa-utensils"></i>餐廳列表</a>
     </li>
+    {% if request.COOKIES.name %}
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'member:logout' %}"><i class="fas fa-user"></i>登出</a>
+    </li>
     <li class="nav-item">
       <a class="nav-link" href="{% url 'book:index' %}"><i class="fas fa-book"></i>訂位系統</a>
     </li>
+    {%else%}
     <li class="nav-item">
-      <a class="nav-link" href="#"><i class="fas fa-comment"></i>會員評論</a>
+      <a class="nav-link" href="{% url 'member:create' %}"><i class="fas fa-user"></i>申請會員</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#"><i class="fas fa-user"></i>會員中心</a>
+      <a class="nav-link" href="{% url 'member:login' %}"><i class="fas fa-user"></i>會員登入</a>
     </li>
+
+
+    
+    {%endif%}
   </ul>

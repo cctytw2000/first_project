@@ -1,10 +1,12 @@
 {% extends "base.html" %} {% block body %}
+{% if request.COOKIES.name == "user" %}
 <div style="position: fixed; ">
     <a href="{% url 'restaurants:create' %}" class="btn btn-primary" style="margin : 5px auto">
         <i class="fas fa-plus-square"></i>餐廳新增</a>
     <a class="btn btn-primary" href="{% url 'restaurants:index' %}">
         <i class="fas fa-cog"></i>餐廳設定</a>
 </div>
+{% endif %}
 <div style="width: 50%;margin: 15px auto">
     <dl style="padding: 5px;font-size: 24px">
         {% for res in datas %}

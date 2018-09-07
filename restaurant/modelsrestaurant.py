@@ -9,7 +9,7 @@ class restaurant:
     
     def single(self, id):
         with connection.cursor() as cursor:
-            cursor.execute("select * from restaurants where restaurantid=%s",(id,))
+            cursor.execute("select * from restaurants where id=%s",(id,))
             data = cursor.fetchone()
         return data
 
@@ -23,10 +23,10 @@ class restaurant:
     def update(self, product):
         with connection.cursor() as cursor:
             sql = """update restaurants set  rname=%s, rtype=%s, rtel=%s, raddress=%s,
-                         rweb=%s, rintroduction=%s where restaurantid=%s"""
+                         rweb=%s, rintroduction=%s where id=%s"""
             cursor.execute(sql,product)
 
     def delete(self, id):
         with connection.cursor() as cursor:
-            sql = "delete from restaurants where restaurantid=%s"
+            sql = "delete from restaurants where id=%s"
             cursor.execute(sql,(id,))

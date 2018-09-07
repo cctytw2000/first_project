@@ -1,0 +1,62 @@
+{% extends 'base.html' %} {% block body %}
+<h2 style="text-align: center">編輯您的訂位</h2>
+<hr />
+<h1 style="text-align: center">您在{{books.booktime}}訂位</h1>
+<form method="POST" enctype="multipart/form-data" style="width: 50%;margin:15px auto">
+  {% csrf_token %}
+  <div class="form-group row">
+    <label for="restaurantname" class="col-sm-2 col-form-label col-form-label-lg">餐廳名稱</label>
+    <div class="col-sm-10">
+      <select class="form-control form-control-lg" name="restaurantname" id="restaurantname">
+          <option value="0">請選擇</option>
+          {% for restaurant in restaurants%} 
+          {% if books.restaurantname == restaurant.rname %}
+          <option selected="selected">{{books.restaurantname}}-----{{restaurant.rtype}}</option>
+          {% else %}
+          <option>{{restaurant.rname}}-----{{restaurant.rtype}}</option>
+          {% endif %}
+          {% endfor %}
+      </select> 
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="bookname" class="col-sm-2 col-form-label col-form-label-lg">訂位大名</label>
+    <div class="col-sm-10">
+      <input type="hidden" name="bookid" value="{{books.id}}" />
+      <input type="text" autocomplete="off" class="form-control form-control-lg" name="bookname" id="bookname" value="{{books.bookname}}">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="bookperson" class="col-sm-2 col-form-label col-form-label-lg">訂位人數</label>
+    <div class="col-sm-10">
+      <input type="number" max="12" min="2" class="form-control form-control-lg" name="bookperson" id="bookperson" value="{{books.bookperson}}">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="booktel" class="col-sm-2 col-form-label col-form-label-lg">訂位電話</label>
+    <div class="col-sm-10">
+      <input type="tel" autocomplete="off" class="form-control form-control-lg" name="booktel" id="booktel" value="{{books.booktel}}">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="bookdate" class="col-sm-2 col-form-label col-form-label-lg">用餐日期</label>
+    <div class="col-sm-10">
+      <input type="date" min ="{{now}}" max="2020-12-31" class="form-control form-control-lg" name="bookdate" id="bookdate" value="{{books.bookdate}}">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="bookwhen" class="col-sm-2 col-form-label col-form-label-lg">用餐時間</label>
+    <div class="col-sm-10">
+      <input type="time" step='900' class="form-control form-control-lg" name="bookwhen" id="bookwhen" placeholder="請輸入訂位日期" value="{{books.bookwhen}}">
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-10">
+      <button type="submit" class="btn btn-primary">
+        <i class="fas fa-wrench">我要修改</button></i>
+
+    </div>
+  </div>
+</form>
+
+{% endblock %} {{data.2}}

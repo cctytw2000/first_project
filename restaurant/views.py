@@ -80,4 +80,4 @@ def delete(request, id):
     # print(id)
     res = restaurant() #modelsproduct.Product()
     res.delete(id)
-    return redirect('/restaurant/beforeupdate')
+    return redirect('/restaurant/')

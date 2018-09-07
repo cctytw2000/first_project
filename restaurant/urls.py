@@ -7,7 +7,6 @@ urlpatterns = [
     path('',views.index,name="index"),
     #http://localhost:8000/product/create
     path('create/',views.create,name="create"),
-    path('beforeupdate',views.beforeupdate,name="beforeupdate"),
     #http://localhost:8000/product/update
     path('update/<int:id>',views.update,name="update"),
     #http://localhost:8000/product/delete/1
